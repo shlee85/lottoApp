@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lotto_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추첨 시스템"
+        android:textSize="@dimen/_50ssp"
+        android:layout_marginTop="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lotto_auto_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동"
+        android:textSize="@dimen/_35ssp"
+        android:layout_marginTop="@dimen/_45sdp"
+        app:layout_constraintTop_toBottomOf="@+id/lotto_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/lotto_manual_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수동"
+        android:textSize="@dimen/_35ssp"
+        android:layout_marginTop="@dimen/_35sdp"
+        app:layout_constraintTop_toBottomOf="@+id/lotto_auto_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/lotto_draw_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추첨"
+        android:textSize="@dimen/_35ssp"
+        android:layout_marginTop="@dimen/_35sdp"
+        app:layout_constraintTop_toBottomOf="@+id/lotto_manual_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
