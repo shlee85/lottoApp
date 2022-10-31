@@ -56,20 +56,22 @@ class AutoCreateNumber(context: Context) : TimeoutDialog(context, android.R.styl
         while(mCnt < 7) {
             var number = range.random()
             Log.d(TAG, "number[$mCnt] : $number")
-            numbers.add(number)
-            Log.d(TAG, "중복체크 : ${doubleCheck(number, numbers)}")
 
-            when(mCnt) {
-                0 -> binding.autoNum1.text = number.toString()
-                1 -> binding.autoNum2.text = number.toString()
-                2 -> binding.autoNum3.text = number.toString()
-                3 -> binding.autoNum4.text = number.toString()
-                4 -> binding.autoNum5.text = number.toString()
-                5 -> binding.autoNum6.text = number.toString()
-                6 -> binding.autoNumBonus.text = number.toString()
+            if(doubleCheck(number, numbers)) {
+                Log.d(TAG, "데이터가 중복되지 않음")
+                numbers.add(number)
+
+                when (mCnt) {
+                    0 -> binding.autoNum1.text = number.toString()
+                    1 -> binding.autoNum2.text = number.toString()
+                    2 -> binding.autoNum3.text = number.toString()
+                    3 -> binding.autoNum4.text = number.toString()
+                    4 -> binding.autoNum5.text = number.toString()
+                    5 -> binding.autoNum6.text = number.toString()
+                    6 -> binding.autoNumBonus.text = number.toString()
+                }
+                mCnt++
             }
-
-            mCnt++
         }
 
         if(mCnt >= 7) {
