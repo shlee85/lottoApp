@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:text="추첨 시스템"
         android:textSize="@dimen/_50ssp"
-        android:layout_marginTop="@dimen/_25sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,4 +52,15 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
+    <Button
+        android:id="@+id/lotto_list_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리스트"
+        android:textSize="@dimen/_25ssp"
+        android:layout_marginTop="@dimen/_35sdp"
+        app:layout_constraintTop_toBottomOf="@+id/lotto_draw_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

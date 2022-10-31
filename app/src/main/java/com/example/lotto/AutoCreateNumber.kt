@@ -6,9 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import com.example.lotto.databinding.AutoCreateNumbersBinding
 
-
 /* android.R.style.Theme_Black_NoTitleBar_Fullscreen 하면 전체화면으로 보여진다. */
-class AutoCreateNumber(context: Context) : TimeoutDialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen, NO_TIME_OUT) {
+class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : TimeoutDialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen, NO_TIME_OUT) {
     private lateinit var binding: AutoCreateNumbersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +24,7 @@ class AutoCreateNumber(context: Context) : TimeoutDialog(context, android.R.styl
 
         binding.autoCreateStartBtn.setOnClickListener {
             Log.d(TAG, "Auto create number start!")
-            autoCreateNumber()
+            autoCreateNumber(numbers)
         }
     }
 
@@ -45,22 +44,21 @@ class AutoCreateNumber(context: Context) : TimeoutDialog(context, android.R.styl
         return true
     }
 
-    private fun autoCreateNumber() {
+    private fun autoCreateNumber(numbers: ArrayList<Int>) {
         Log.d(TAG, "Auto...Create")
-
-        var numbers: ArrayList<Int> = ArrayList()
 
         /* 랜덤 번호 생성 */
         val range = (1 .. 45)
 
         while(mCnt < 7) {
-            var number = range.random()
+            val number = range.random()
             Log.d(TAG, "number[$mCnt] : $number")
 
             if(doubleCheck(number, numbers)) {
                 Log.d(TAG, "데이터가 중복되지 않음")
                 numbers.add(number)
 
+                /* 생성된 번호 TextView에 적용 */
                 when (mCnt) {
                     0 -> binding.autoNum1.text = number.toString()
                     1 -> binding.autoNum2.text = number.toString()
@@ -77,9 +75,6 @@ class AutoCreateNumber(context: Context) : TimeoutDialog(context, android.R.styl
         if(mCnt >= 7) {
             mCnt = 0
         }
-
-        /* 생성된 번호 TextView에 적용 */
-
     }
 
     companion object {

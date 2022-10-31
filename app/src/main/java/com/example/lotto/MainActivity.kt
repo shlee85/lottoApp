@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var mAutoCreateNumber: AutoCreateNumber ?= null
+    private var mLottoList: LottoNumberListAdapter ?= null
+
+    private lateinit var adapter: LottoNumberListAdapter
+    private val mNumbers: ArrayList<Int> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.lottoAutoBtn.setOnClickListener {
             runOnUiThread {
-                mAutoCreateNumber = AutoCreateNumber(this)
+                mAutoCreateNumber = AutoCreateNumber(this, mNumbers)
                 mAutoCreateNumber?.show()   //실제 dialog가 호출 된다
                 mAutoCreateNumber?.setOnDismissListener {
                     Log.d(TAG, "Auto window dismiss()")
@@ -31,6 +35,17 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 //Utils.dialogShowWithoutNavigationBar(mAutoCreateNumber)
+            }
+        }
+
+        binding.lottoListBtn.setOnClickListener {
+            runOnUiThread {
+                mLottoList = LottoNumberListAdapter(this, mNumbers)
+                mLottoList?.show()
+                mLottoList?.setOnDismissListener {
+                    Log.d(TAG, "LottoNumberList dismiss()")
+                    mLottoList = null
+                }
             }
         }
     }
