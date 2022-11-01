@@ -12,13 +12,80 @@
         >
 
         <TextView
-            android:id="@+id/item_numbers"
+            android:id="@+id/item_number_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 10 20 30 31 34 : 45"
+            android:text="1"
+            android:layout_margin="@dimen/_2sdp"
             android:textSize="@dimen/_13ssp"
             android:textColor="#0900F9"
             app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/item_number_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:layout_margin="@dimen/_2sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_1"
+            />
+
+        <TextView
+            android:id="@+id/item_number_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_margin="@dimen/_2sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_2"
+            />
+
+        <TextView
+            android:id="@+id/item_number_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:layout_margin="@dimen/_2sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_3"
+            />
+
+        <TextView
+            android:id="@+id/item_number_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:layout_margin="@dimen/_2sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_4"
+            />
+
+        <TextView
+            android:id="@+id/item_number_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:layout_margin="@dimen/_2sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_5"
+            />
+
+        <TextView
+            android:id="@+id/item_number_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="10"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#0900F9"
+            app:layout_constraintStart_toEndOf="@+id/item_number_6"
             />
 
         <TextView
@@ -26,10 +93,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(비추첨)"
+            android:layout_margin="@dimen/_2sdp"
             android:textSize="@dimen/_13ssp"
             android:textColor="#0900F9"
             android:layout_marginLeft="@dimen/_10sdp"
-            app:layout_constraintStart_toEndOf="@+id/item_numbers"
+            app:layout_constraintStart_toEndOf="@+id/item_number_bonus"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

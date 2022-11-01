@@ -2,13 +2,17 @@ package com.example.lotto
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Environment
+import android.provider.ContactsContract.Directory
 import android.util.Log
 import android.view.LayoutInflater
 import com.example.lotto.databinding.AutoCreateNumbersBinding
 
 /* android.R.style.Theme_Black_NoTitleBar_Fullscreen 하면 전체화면으로 보여진다. */
-class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : TimeoutDialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen, NO_TIME_OUT) {
+class AutoCreateNumber(context: Context, val numbers: IntArray)
+    : TimeoutDialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen, NO_TIME_OUT) {
     private lateinit var binding: AutoCreateNumbersBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate()")
@@ -34,7 +38,7 @@ class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : 
     }
 
     private var mCnt = 0
-    private fun doubleCheck(number: Int, arrayNum: ArrayList<Int>) : Boolean {
+    private fun doubleCheck(number: Int, arrayNum: IntArray) : Boolean {
         arrayNum.forEach {
             if(number == it) {
                 Log.d(TAG, "중복 ( $number : $it )")
@@ -44,7 +48,7 @@ class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : 
         return true
     }
 
-    private fun autoCreateNumber(numbers: ArrayList<Int>) {
+    private fun autoCreateNumber(numbers: IntArray) {
         Log.d(TAG, "Auto...Create")
 
         /* 랜덤 번호 생성 */
@@ -56,7 +60,8 @@ class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : 
 
             if(doubleCheck(number, numbers)) {
                 Log.d(TAG, "데이터가 중복되지 않음")
-                numbers.add(number)
+                //numbers.add(number)
+                numbers[mCnt] = number
 
                 /* 생성된 번호 TextView에 적용 */
                 when (mCnt) {
@@ -73,6 +78,12 @@ class AutoCreateNumber(context: Context, private val numbers: ArrayList<Int>) : 
         }
 
         if(mCnt >= 7) {
+            val listNumber = "${numbers[0]}  ${numbers[1]}  ${numbers[2]}  ${numbers[3]}" +
+                    "  ${numbers[4]}  ${numbers[5]}   ${numbers[6]}"
+            Utils.writeTextFile("/storage/emulated/0/Lotto", "number_list.txt", listNumber)
+            val file = Environment.getExternalStorageDirectory().absolutePath + "/Lotto/number_list.txt"
+
+            Utils.readTextFile(file)
             mCnt = 0
         }
     }

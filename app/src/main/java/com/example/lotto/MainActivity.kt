@@ -8,16 +8,23 @@ import android.view.WindowManager
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.databinding.DataBindingUtil.setContentView
 import com.example.lotto.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+data class NumbersInfo (
+    var number1:Int, var number2:Int, var number3:Int, var number4:Int,
+    var number5:Int, var number6:Int, var numberBonus:Int
+)
 
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var mAutoCreateNumber: AutoCreateNumber ?= null
     private var mLottoList: LottoNumberListAdapter ?= null
 
     private lateinit var adapter: LottoNumberListAdapter
-    private val mNumbers: ArrayList<Int> = ArrayList()
+    //private val mNumbers: ArrayList<Int> = ArrayList()
+    private val mNumbers: IntArray = IntArray(8)
+    //private val mNumbers: ArrayList<NumbersInfo> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

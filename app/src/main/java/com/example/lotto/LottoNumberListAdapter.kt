@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lotto.databinding.LottoNumberListBinding
 import com.example.lotto.databinding.NumberListThemeBinding
 
-
-class LottoNumberListAdapter(context: Context, private val numbers: ArrayList<Int>)
+class LottoNumberListAdapter(context: Context, private val numbers: IntArray)
     : TimeoutDialog(context, android.R.style.Theme_NoTitleBar_Fullscreen, NO_TIME_OUT) {
 
     private lateinit var binding: LottoNumberListBinding
@@ -28,7 +27,7 @@ class LottoNumberListAdapter(context: Context, private val numbers: ArrayList<In
             this.dismiss()
         }
 
-        numbers.add(1)
+        //numbers.add(1)
         Log.d(TAG, "nums count : ${numbers.size}")
     }
 
@@ -48,17 +47,29 @@ class LottoNumberListAdapter(context: Context, private val numbers: ArrayList<In
 
     inner class NumberListAdapter(
         private val context: Context,
-        private val numbers: ArrayList<Int>
+        private val numbers: IntArray
     ) : RecyclerView.Adapter<NumberListAdapter.MainViewHolder>() {
 
         private lateinit var binding: NumberListThemeBinding
+        private var numberItem: String = ""
 
         inner class MainViewHolder(private val binding: NumberListThemeBinding) :
             RecyclerView.ViewHolder(binding.root) {
             fun bind() {
-                numbers.forEach {
-                    Log.d(TAG, "$it")
+                for(i in 0..numbers.size-1){
+                    numberItem = "${numbers[i] }"
+                    when(i) {
+                        0 -> binding.itemNumber1.text = numbers[i].toString()
+                        1 -> binding.itemNumber2.text = numbers[i].toString()
+                        2 -> binding.itemNumber3.text = numbers[i].toString()
+                        3 -> binding.itemNumber4.text = numbers[i].toString()
+                        4 -> binding.itemNumber5.text = numbers[i].toString()
+                        5 -> binding.itemNumber6.text = numbers[i].toString()
+                        6 -> binding.itemNumberBonus.text = numbers[i].toString()
+                    }
                 }
+
+                Log.d(TAG, "numbers Item : $numberItem")
             }
         }
 
@@ -69,13 +80,17 @@ class LottoNumberListAdapter(context: Context, private val numbers: ArrayList<In
         }
 
         override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-            Log.d(TAG, "start onBindViewHolder")
+            Log.d(TAG, "start onBindViewHolder: $position")
             holder.bind()
         }
 
+        /*
+         해당 return값에 따라서 onBindViewHolder 호출 횟수가 정해진다.
+         여기서는. return에 대한 값은 DB에서 읽어온 데이터를 기준으로 처리 하는게 맞을 것으로 보임.
+        * */
         override fun getItemCount(): Int {
             Log.d(TAG, "count : ${numbers.size}")
-            return numbers.size
+            return 1
         }
     }
 
