@@ -9,147 +9,165 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/auto_create_title"
+        android:id="@+id/manual_create_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="수동 생성"
-        android:textSize="@dimen/_50ssp"
+        android:textSize="@dimen/_40ssp"
         android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/auto_num_1"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="1"
-        android:textSize="@dimen/_30ssp"
-        android:textColor="@color/custom_text_color_white"
-        android:background="@color/custom_text_background"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/auto_num_2"
-        />
-
-    <TextView
-        android:id="@+id/auto_num_2"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="2"
-        android:textSize="@dimen/_30ssp"
-        android:textColor="@color/custom_text_color_white"
-        android:background="@color/custom_text_background"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
-        app:layout_constraintLeft_toLeftOf="@+id/auto_num_1"
-        app:layout_constraintRight_toRightOf="@id/auto_num_3"
-        />
-
-    <TextView
-        android:id="@+id/auto_num_3"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="3"
-        android:textSize="@dimen/_30ssp"
-        android:background="@color/custom_text_background"
-        android:textColor="@color/custom_text_color_white"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
-        app:layout_constraintLeft_toLeftOf="@+id/auto_num_2"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/auto_num_4"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="4"
-        android:textSize="@dimen/_30ssp"
-        android:background="@color/custom_text_background"
-        android:textColor="@color/custom_text_color_white"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_num_1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/auto_num_2"
-        />
-
-    <TextView
-        android:id="@+id/auto_num_5"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="5"
-        android:textSize="@dimen/_30ssp"
-        android:background="@color/custom_text_background"
-        android:textColor="@color/custom_text_color_white"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_num_2"
-        app:layout_constraintLeft_toLeftOf="@+id/auto_num_1"
-        app:layout_constraintRight_toRightOf="@id/auto_num_3"
-        />
-
-    <TextView
-        android:id="@+id/auto_num_6"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="6"
-        android:textSize="@dimen/_30ssp"
-        android:background="@color/custom_text_background"
-        android:textColor="@color/custom_text_color_white"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_num_3"
-        app:layout_constraintLeft_toLeftOf="@+id/auto_num_2"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/auto_create_bonus"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/number_code"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="보너스"
-        android:textSize="@dimen/_45ssp"
-        android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_45sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_num_5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/manual_create_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
-    <TextView
-        android:id="@+id/auto_num_bonus"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:text="6"
-        android:textSize="@dimen/_30ssp"
-        android:background="@color/custom_text_background"
-        android:textColor="@color/custom_text_color_white"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/auto_create_bonus"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        <TextView
+            android:id="@+id/manual_num_1"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="1"
+            android:textSize="@dimen/_25ssp"
+            android:textColor="@color/custom_text_color_white"
+            android:background="@color/custom_text_background"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/manual_num_2"
+            />
 
+        <TextView
+            android:id="@+id/manual_num_2"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="2"
+            android:textSize="@dimen/_25ssp"
+            android:textColor="@color/custom_text_color_white"
+            android:background="@color/custom_text_background"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="@+id/manual_num_1"
+            app:layout_constraintRight_toRightOf="@id/manual_num_3"
+            />
+
+        <TextView
+            android:id="@+id/manual_num_3"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="3"
+            android:textSize="@dimen/_25ssp"
+            android:background="@color/custom_text_background"
+            android:textColor="@color/custom_text_color_white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="@+id/manual_num_2"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/manual_num_4"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="4"
+            android:textSize="@dimen/_25ssp"
+            android:background="@color/custom_text_background"
+            android:textColor="@color/custom_text_color_white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/manual_num_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/manual_num_2"
+            />
+
+        <TextView
+            android:id="@+id/manual_num_5"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="5"
+            android:textSize="@dimen/_25ssp"
+            android:background="@color/custom_text_background"
+            android:textColor="@color/custom_text_color_white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/manual_num_2"
+            app:layout_constraintLeft_toLeftOf="@+id/manual_num_1"
+            app:layout_constraintRight_toRightOf="@id/manual_num_3"
+            />
+
+        <TextView
+            android:id="@+id/manual_num_6"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="6"
+            android:textSize="@dimen/_25ssp"
+            android:background="@color/custom_text_background"
+            android:textColor="@color/custom_text_color_white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/manual_num_3"
+            app:layout_constraintLeft_toLeftOf="@+id/manual_num_2"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/manual_create_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보너스"
+            android:textSize="@dimen/_25ssp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@+id/manual_num_5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/manual_num_bonus"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="6"
+            android:textSize="@dimen/_25ssp"
+            android:background="@color/custom_text_background"
+            android:textColor="@color/custom_text_color_white"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@id/manual_create_bonus"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.example.lotto.NumericKeypadView
+        android:id="@+id/custom_number_keypad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/number_code"
+        app:layout_constraintStart_toStartOf="@+id/number_code"
+        app:layout_constraintEnd_toEndOf="@+id/number_code"
+        app:layout_constraintDimensionRatio="4:3"
+
+        />
+    <!--
     <Button
-        android:id="@+id/auto_create_start_btn"
+        android:id="@+id/manual_create_start_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="시작"
         android:textSize="@dimen/_25ssp"
         android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/auto_num_bonus"
+        app:layout_constraintTop_toBottomOf="@+id/manual_num_bonus"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-
-
-
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

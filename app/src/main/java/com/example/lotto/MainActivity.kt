@@ -20,11 +20,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var mAutoCreateNumber: AutoCreateNumber ?= null
     private var mLottoList: LottoNumberListAdapter ?= null
+    private var mManualCreateNumber: ManualCreateNumber ?= null
 
-    private lateinit var adapter: LottoNumberListAdapter
-    //private val mNumbers: ArrayList<Int> = ArrayList()
     private val mNumbers: IntArray = IntArray(8)
-    //private val mNumbers: ArrayList<NumbersInfo> = ArrayList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +51,17 @@ class MainActivity : AppCompatActivity() {
                 mLottoList?.setOnDismissListener {
                     Log.d(TAG, "LottoNumberList dismiss()")
                     mLottoList = null
+                }
+            }
+        }
+
+        binding.lottoManualBtn.setOnClickListener {
+            runOnUiThread {
+                mManualCreateNumber = ManualCreateNumber(this)
+                mManualCreateNumber?.show()
+                mManualCreateNumber?.setOnDismissListener {
+                    Log.d(TAG, "manual .. dismiss()")
+                    mManualCreateNumber = null
                 }
             }
         }
