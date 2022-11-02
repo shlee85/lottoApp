@@ -2,6 +2,8 @@ package com.example.lotto
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Environment
+import android.service.autofill.Validators.or
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,6 +16,8 @@ class LottoNumberListAdapter(context: Context, private val numbers: IntArray)
     : TimeoutDialog(context, android.R.style.Theme_NoTitleBar_Fullscreen, NO_TIME_OUT) {
 
     private lateinit var binding: LottoNumberListBinding
+    private var mNumberArry : ArrayList<NumbersInfo> = ArrayList()
+    private var mIdx = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "life-cycle: start onCreate()")
@@ -35,8 +39,12 @@ class LottoNumberListAdapter(context: Context, private val numbers: IntArray)
         Log.d(TAG, "life-cycle: start onStart()")
         super.onStart()
 
-        binding.numberList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.numberList.setHasFixedSize(true)
+        val file = Environment.getExternalStorageDirectory().absolutePath + "/Lotto/number_list.txt"
+        Utils.readTextFile(file, mNumberArry)
+        Log.d(TAG, "ArrayList size = ${mNumberArry.size}")
+
+        binding.numberList.layoutManager = LinearLayoutManager(context)
+        //binding.numberList.setHasFixedSize(true)
         binding.numberList.adapter = NumberListAdapter(context, numbers)
     }
 
@@ -55,33 +63,28 @@ class LottoNumberListAdapter(context: Context, private val numbers: IntArray)
 
         inner class MainViewHolder(private val binding: NumberListThemeBinding) :
             RecyclerView.ViewHolder(binding.root) {
-            fun bind() {
-                for(i in 0..numbers.size-1){
-                    numberItem = "${numbers[i] }"
-                    when(i) {
-                        0 -> binding.itemNumber1.text = numbers[i].toString()
-                        1 -> binding.itemNumber2.text = numbers[i].toString()
-                        2 -> binding.itemNumber3.text = numbers[i].toString()
-                        3 -> binding.itemNumber4.text = numbers[i].toString()
-                        4 -> binding.itemNumber5.text = numbers[i].toString()
-                        5 -> binding.itemNumber6.text = numbers[i].toString()
-                        6 -> binding.itemNumberBonus.text = numbers[i].toString()
-                    }
-                }
-
-                Log.d(TAG, "numbers Item : $numberItem")
+            fun bind(idx: Int) {
+                Log.d(TAG, "num = ${mNumberArry[idx].number1}")
+                binding.itemNumber1.text = mNumberArry[idx].number1.toString()
+                binding.itemNumber2.text = mNumberArry[idx].number2.toString()
+                binding.itemNumber3.text = mNumberArry[idx].number3.toString()
+                binding.itemNumber4.text = mNumberArry[idx].number4.toString()
+                binding.itemNumber5.text = mNumberArry[idx].number5.toString()
+                binding.itemNumber6.text = mNumberArry[idx].number6.toString()
+                binding.itemNumberBonus.text = mNumberArry[idx].numberBonus.toString()
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
             Log.d(TAG, "start onCreateViewHolder")
-            binding = NumberListThemeBinding.inflate(LayoutInflater.from(context), parent, false)
+            binding = NumberListThemeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return MainViewHolder(binding)
         }
 
         override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
             Log.d(TAG, "start onBindViewHolder: $position")
-            holder.bind()
+            holder.bind(position)
+            mIdx++
         }
 
         /*
@@ -89,8 +92,7 @@ class LottoNumberListAdapter(context: Context, private val numbers: IntArray)
          여기서는. return에 대한 값은 DB에서 읽어온 데이터를 기준으로 처리 하는게 맞을 것으로 보임.
         * */
         override fun getItemCount(): Int {
-            Log.d(TAG, "count : ${numbers.size}")
-            return 1
+            return mNumberArry.size
         }
     }
 

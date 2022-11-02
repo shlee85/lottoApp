@@ -13,7 +13,6 @@ class AutoCreateNumber(context: Context, val numbers: IntArray)
     : TimeoutDialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen, NO_TIME_OUT) {
     private lateinit var binding: AutoCreateNumbersBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate()")
         super.onCreate(savedInstanceState)
@@ -78,12 +77,9 @@ class AutoCreateNumber(context: Context, val numbers: IntArray)
         }
 
         if(mCnt >= 7) {
-            val listNumber = "${numbers[0]}  ${numbers[1]}  ${numbers[2]}  ${numbers[3]}" +
-                    "  ${numbers[4]}  ${numbers[5]}   ${numbers[6]}"
+            val listNumber = "${numbers[0]} ${numbers[1]} ${numbers[2]} ${numbers[3]}" +
+                    " ${numbers[4]} ${numbers[5]} ${numbers[6]}"
             Utils.writeTextFile("/storage/emulated/0/Lotto", "number_list.txt", listNumber)
-            val file = Environment.getExternalStorageDirectory().absolutePath + "/Lotto/number_list.txt"
-
-            Utils.readTextFile(file)
             mCnt = 0
         }
     }

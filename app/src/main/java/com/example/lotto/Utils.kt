@@ -56,16 +56,19 @@ object Utils {
             Log.d(TAG, "폴더 생성 안됨.")
         }
 
-        val writer = FileWriter(directory + "/" + filename)
+        /* true는 이어쓰기 한다는 설정 */
+        val writer = FileWriter(directory + "/" + filename, true)
+        writer.flush()
         Log.d(TAG, "FileWrite end : $writer")
 
         /* 쓰기 속도 향상 */
         val buffer = BufferedWriter(writer)
         buffer.write(content)
+        buffer.newLine() //write후 다음 라인에서 새로운 데이터 저장하도록 설정.
         buffer.close()
     }
 
-    fun readTextFile(path: String): String {
+    fun readTextFile(path: String, numArray: ArrayList<NumbersInfo>): String {
         val file = File(path)
 
         if(!file.exists()) {
@@ -81,10 +84,22 @@ object Utils {
 
         while(true) {
             temp = buffer.readLine() //줄단위
-            Log.d(TAG, "Read : $temp")
             if(temp == null) {
                 break
             } else {
+                Log.d(TAG, "Read : $temp")
+                val number = temp.split(" ")
+                //Log.d(TAG, "number: ${number[0]}, ${number[1]}, ${number[2]}, ${number.size}")
+                numArray.add(
+                    NumbersInfo(number[0].toInt(),
+                                number[1].toInt(),
+                                number[2].toInt(),
+                                number[3].toInt(),
+                                number[4].toInt(),
+                                number[5].toInt(),
+                                number[6].toInt()
+                    )
+                )
                 result.append(temp).append("\n")
             }
         }
