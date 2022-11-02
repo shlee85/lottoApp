@@ -7,6 +7,7 @@ import android.provider.ContactsContract.Directory
 import android.util.Log
 import android.view.LayoutInflater
 import com.example.lotto.databinding.AutoCreateNumbersBinding
+import java.security.SecureRandom
 
 /* android.R.style.Theme_Black_NoTitleBar_Fullscreen 하면 전체화면으로 보여진다. */
 class AutoCreateNumber(context: Context, val numbers: IntArray)
@@ -54,8 +55,14 @@ class AutoCreateNumber(context: Context, val numbers: IntArray)
         val range = (1 .. 45)
 
         while(mCnt < 7) {
-            val number = range.random()
+            //val number = range.random()
+            val secure = SecureRandom()
+            val number = secure.nextInt(45)
             Log.d(TAG, "number[$mCnt] : $number")
+
+            if(number == 0) {
+                continue
+            }
 
             if(doubleCheck(number, numbers)) {
                 Log.d(TAG, "데이터가 중복되지 않음")

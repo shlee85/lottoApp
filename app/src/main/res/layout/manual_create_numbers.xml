@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/auto_create_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수동 생성"
+        android:textSize="@dimen/_50ssp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/auto_num_1"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="1"
+        android:textSize="@dimen/_30ssp"
+        android:textColor="@color/custom_text_color_white"
+        android:background="@color/custom_text_background"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/auto_num_2"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_2"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="2"
+        android:textSize="@dimen/_30ssp"
+        android:textColor="@color/custom_text_color_white"
+        android:background="@color/custom_text_background"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
+        app:layout_constraintLeft_toLeftOf="@+id/auto_num_1"
+        app:layout_constraintRight_toRightOf="@id/auto_num_3"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_3"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="3"
+        android:textSize="@dimen/_30ssp"
+        android:background="@color/custom_text_background"
+        android:textColor="@color/custom_text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_create_title"
+        app:layout_constraintLeft_toLeftOf="@+id/auto_num_2"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_4"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="4"
+        android:textSize="@dimen/_30ssp"
+        android:background="@color/custom_text_background"
+        android:textColor="@color/custom_text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_num_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/auto_num_2"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_5"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="5"
+        android:textSize="@dimen/_30ssp"
+        android:background="@color/custom_text_background"
+        android:textColor="@color/custom_text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_num_2"
+        app:layout_constraintLeft_toLeftOf="@+id/auto_num_1"
+        app:layout_constraintRight_toRightOf="@id/auto_num_3"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_6"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="6"
+        android:textSize="@dimen/_30ssp"
+        android:background="@color/custom_text_background"
+        android:textColor="@color/custom_text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_num_3"
+        app:layout_constraintLeft_toLeftOf="@+id/auto_num_2"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/auto_create_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보너스"
+        android:textSize="@dimen/_45ssp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_45sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_num_5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/auto_num_bonus"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="6"
+        android:textSize="@dimen/_30ssp"
+        android:background="@color/custom_text_background"
+        android:textColor="@color/custom_text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/auto_create_bonus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/auto_create_start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시작"
+        android:textSize="@dimen/_25ssp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/auto_num_bonus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
